@@ -1,24 +1,34 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import { Link } from "expo-router";
+import { TailwindProvider } from "tailwindcss-react-native";
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-3xl">Yo</Text>
-      <StatusBar style="auto" />
-      <Link href="/profile" style={{ color: "blue" }}>
-        Go to Profile
-      </Link>
-    </View>
+    <TailwindProvider>
+      <View className="flex-1 justify-between bg-red-50">
+        <View className="flex-1 items-center justify-center">
+          <Text className="text-4xl p-3">The Content will be here</Text>
+        </View>
+        <View className="flex-row justify-around bg-stone-900 py-3 border-t border-gray-300 space-x-4">
+          <Link href="/" className="text-white lg:border p-2 border-blue-100">
+            Home
+          </Link>
+          <Link
+            href="/favourites/page"
+            className="text-white lg:border p-2 border-blue-100"
+          >
+            Go to Favourite
+          </Link>
+          <Link
+            href="/profile/page"
+            className="text-white lg:border p-2 border-blue-100"
+          >
+            Go to Profile
+          </Link>
+        </View>
+        <StatusBar style="auto" />
+      </View>
+    </TailwindProvider>
   );
 }
-// // This is a the sample for vanilla css or rather the usage of stylesheet
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
