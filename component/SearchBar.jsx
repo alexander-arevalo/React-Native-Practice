@@ -1,14 +1,34 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const SearchBar = () => {
   return (
-    <View>
-      <Text>SearchBar</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          placeholder="Search For Pokemon"
+          placeholderTextColor="#aaa"
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
-export default SearchBar;
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  input: {
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    fontSize: 16,
+  },
+});
 
-const styles = StyleSheet.create({});
+export default SearchBar;
